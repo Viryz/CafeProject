@@ -10,7 +10,8 @@ namespace CafeProject
     {
         static void Main(string[] args)
         {
-
+            Cafe cafe = new Cafe(20, 100);
+            cafe.Start();
         }
     }
 }

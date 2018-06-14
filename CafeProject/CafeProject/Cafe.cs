@@ -13,7 +13,7 @@ namespace CafeProject
         int countTry;
         Client client;
 
-        Cafe(int nm, int cm) { needMoney = nm; currentMoney = cm; countTry = 3; } 
+        public Cafe(int nm, int cm) { needMoney = nm; currentMoney = cm; countTry = 3; } 
 
         int Read()
         {
