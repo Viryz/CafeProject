@@ -26,7 +26,12 @@ namespace CafeProject
 
         public void Start()
         {
+            int n;
+            n = Read();
+            if(client.Check(n, currentMoney, countTry))
+            {
 
+            }
         }
     }
 }
