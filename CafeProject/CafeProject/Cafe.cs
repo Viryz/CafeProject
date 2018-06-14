@@ -26,12 +26,23 @@ namespace CafeProject
 
         public void Start()
         {
-            int n;
-            n = Read();
-            if(client.Check(n, currentMoney, countTry))
+            while (true)
             {
-
+                int n;
+                n = Read();
+                if (client.Check(n, ref currentMoney, ref countTry))
+                {
+                    if (currentMoney >= needMoney)
+                    {
+                        Console.WriteLine("You win!"); break;
+                    }
+                    if(currentMoney < 0)
+                    { Console.WriteLine("You lose!"); break; }
+                    client = new Client();
+                    Console.WriteLine("New Client");
+                }
             }
+            Console.ReadLine();
         }
     }
 }
