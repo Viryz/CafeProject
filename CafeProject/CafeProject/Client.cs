@@ -18,11 +18,10 @@ namespace CafeProject
     {
         public Mood Mood { get; private set; }
 
-        Random r = new Random();
+        private static Random r = new Random();
 
         public Client()
         {
-            
             this.Mood = (Mood)r.Next(1, 2);
         }
 
@@ -31,7 +30,7 @@ namespace CafeProject
             return r.Next(0, 2);
         }
 
-        bool Check(int foodNumber, ref int currentMoney, ref int countTry)
+        public bool Check(int foodNumber, ref int currentMoney, ref int countTry)
         {
             if (foodNumber == this.GetRequest())
             {
