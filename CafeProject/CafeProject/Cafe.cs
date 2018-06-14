@@ -20,7 +20,6 @@ namespace CafeProject
             int n;
             Console.WriteLine("Choice food: (tea - 0, ice cream - 1, coffe - 2)");
             n = int.Parse(Console.ReadLine());
-
             return n;
         }
 
@@ -40,6 +39,7 @@ namespace CafeProject
                 }
                 if (client.Check(n, ref currentMoney, ref countTry))
                 {
+                    Console.WriteLine("Current money: {0}", currentMoney);
                     if (currentMoney >= needMoney)
                     {
                         Console.WriteLine("You win!"); break;
