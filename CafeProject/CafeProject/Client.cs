@@ -19,6 +19,7 @@ namespace CafeProject
         public Mood Mood { get; private set; }
 
         Random r = new Random();
+
         public Client()
         {
             

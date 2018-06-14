@@ -10,9 +10,11 @@ namespace CafeProject
     {
         int needMoney;
         int currentMoney;
-        //Client client;
+        int countTry;
+        Client client;
 
-        Cafe(int nm, int cm) { needMoney = nm; currentMoney = cm; }
+        Cafe(int nm, int cm) { needMoney = nm; currentMoney = cm; countTry = 3; } 
+
         int Read()
         {
             int n;
@@ -20,6 +22,11 @@ namespace CafeProject
             n = int.Parse(Console.ReadLine());
 
             return n;
+        }
+
+        public void Start()
+        {
+
         }
     }
 }
