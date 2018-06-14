@@ -31,7 +31,39 @@ namespace CafeProject
             return r.Next(0, 2);
         }
 
-        void Check() { }
+        bool Check(int foodNumber, ref int currentMoney, ref int countTry)
+        {
+            if (foodNumber == this.GetRequest())
+            {
+                if (this.Mood == Mood.Neutral)
+                {
+                    this.Mood = Mood.Happy;
+                    currentMoney += this.Out();
+                    return true;
+                }
+                if (this.Mood == Mood.Cry)
+                    this.Mood = Mood.Neutral;
+            }
+            else
+            {
+                if (this.Mood == Mood.Cry)
+                {
+                    this.Mood = Mood.Angry;
+                    currentMoney += this.Out();
+                    return true;
+                }
+                if (this.Mood == Mood.Neutral)
+                    this.Mood = Mood.Cry;
+            }
+            countTry--;
+            if (countTry == 0)
+            {
+                currentMoney += this.Out();
+                countTry = 3;
+                return true;
+            }
+            return false;
+        }
 
         int Out()
         {
