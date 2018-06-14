@@ -13,7 +13,7 @@ namespace CafeProject
         int countTry;
         Client client;
 
-        public Cafe(int nm, int cm) { needMoney = nm; currentMoney = cm; countTry = 3; } 
+        public Cafe(int cm, int nm) { needMoney = nm; currentMoney = cm; countTry = 3; client = new Client(); } 
 
         int Read()
         {
@@ -29,7 +29,15 @@ namespace CafeProject
             while (true)
             {
                 int n;
-                n = Read();
+                try
+                {
+                    n = Read();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
                 if (client.Check(n, ref currentMoney, ref countTry))
                 {
                     if (currentMoney >= needMoney)
@@ -38,6 +46,7 @@ namespace CafeProject
                     }
                     if(currentMoney < 0)
                     { Console.WriteLine("You lose!"); break; }
+
                     client = new Client();
                     Console.WriteLine("New Client");
                 }
